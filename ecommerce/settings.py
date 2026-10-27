@@ -29,16 +29,12 @@ DEBUG = os.environ.get('DEBUG', 'True').lower() in ('true', '1', 't')
 if os.environ.get('RENDER'):
     DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1', 't')
 
-ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
-env_allowed_hosts = os.environ.get('ALLOWED_HOSTS')
-if env_allowed_hosts:
-    ALLOWED_HOSTS.extend([h.strip() for h in env_allowed_hosts.split(',') if h.strip()])
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.onrender.com',
+    'https://*.localtunnel.me',
+    'https://*.trycloudflare.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
 ]
