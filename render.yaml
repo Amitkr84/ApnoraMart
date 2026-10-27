@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: apnoramart
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn ecommerce.wsgi:application"
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: RENDER
+        value: "true"

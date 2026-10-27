@@ -4,6 +4,11 @@
 *.pyc
 __pycache__/
 venv/
+.env
+staticfiles/
+*.sqlite3-journal
+*.sqlite3-wal
+*.sqlite3-shm
 set_vector_category_icons.py
 update_accurate_images.py
 update_category_icons.py
